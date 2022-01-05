@@ -25,12 +25,25 @@ enum custom_keycodes {
 #define KC_CTPL LCTL_T(KC_BSLS)
 
 #define KC_NAGR LT(_NAV, KC_ESC) // KC_GRV
-// #define KC_NAMI MT(MOD_RSFT, KC_ENT)
 
 #define KC_ADPU LT(_ADJUST, KC_PGUP)
 
 #define KC_PLOVER DF(_PLOVER)
 #define KC_QWERTY DF(_QWERTY)
+
+enum unicode_names {
+    AA,
+    AE,
+    OE,
+};
+
+const uint32_t PROGMEM unicode_map[] = {
+  [AE] = 0x00E6, // æ
+  [OE] = 0x00F8, // ø
+  [AA] = 0x00E5, // å
+};
+
+/* bool process_record_user(uint16_t keycode, keyrecord_t *record) */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -84,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├─────┼─────┼─────┼─────┼─────┼─────┼─────┤                          ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
        XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,                             XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX  , XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
   //├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┐    ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-      XXXXXXX,KC_SYSTEM_SLEEP,XXXXXXX, XXXXXXX  , XXXXXXX ,  XXXXXXX , _______  , XXXXXXX  ,       XXXXXXX , _______  ,  XXXXXXX ,  XXXXXXX , XXXXXXX  , XXXXXXX ,  XXXXXXX ,  XXXXXXX ,
+       XXXXXXX,KC_SYSTEM_SLEEP,XXXXXXX, XXXXXXX  , XXXXXXX ,  XXXXXXX , _______  , XXXXXXX  ,       XXXXXXX , _______ ,  XXXXXXX ,  XXXXXXX ,  X(OE)   ,  X(AE)  ,   X(AA)  ,  XXXXXXX ,
   //├─────┼─────┼─────┼─────┼───────────┼─────┼─────┤    ├─────┼─────┼───────────┼─────┼─────┼─────┼─────┤
        XXXXXXX , XXXXXXX  ,  XXXXXXX ,  XXXXXXX ,    XXXXXXX  ,        XXXXXXX  , XXXXXXX  ,       XXXXXXX , XXXXXXX  ,     XXXXXXX ,        XXXXXXX  ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX
   //└─────┴─────┴─────┴─────┘  └─────┘     └─────┴─────┘    └─────┴─────┘  └─────┘     └─────┴─────┴─────┴─────┘
