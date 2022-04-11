@@ -1,0 +1,7 @@
+Click on a completion to select it.
+In this buffer, type RET to select the completion near point.
+
+Possible completions are:
+.#rules.mk 	../ 	./
+config.h 	index-1.html 	keymap.c
+rules.mk
