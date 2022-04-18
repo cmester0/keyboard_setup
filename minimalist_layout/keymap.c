@@ -9,6 +9,7 @@
 #define _NUM 2
 #define _NAV 3
 #define _COM 4
+#define _GAMEING 5
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -16,6 +17,7 @@ enum custom_keycodes {
   NUM,
   NAV,
   COM,
+  GAMEING,
 };
 
 /* // Shortcut to make keymap more readable */ 
@@ -30,6 +32,9 @@ enum custom_keycodes {
 #define R_HOME2 RSFT_T(KC_K)
 #define R_HOME3 LT(_COM,    KC_J)
 #define R_HOME4 LT(_SYM,    KC_BSPC)
+
+#define DF_GAMEING DF(_GAMEING)
+#define DF_QWERTY  DF(_QWERTY)
 
 /* bool process_record_user(uint16_t keycode, keyrecord_t *record) */
 
@@ -52,9 +57,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌─────┬─────┬─────┬─────┬─────┬─────┐                                                ┌─────┬─────┬─────┬─────┬─────┬─────┐
        XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,  XXXXXXX ,                                                   XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,
   //├─────┼─────┼─────┼─────┼─────┼─────┼─────┐                          ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-       XXXXXXX ,  KC_EXLM ,  KC_AT   , KC_HASH  , KC_DLR  , KC_PERC  ,  XXXXXXX ,                             XXXXXXX ,  KC_CIRC ,  KC_AMPR ,  KC_LPRN ,  KC_RPRN , XXXXXXX ,  XXXXXXX ,
+       XXXXXXX ,  KC_EXLM ,  KC_AT   , KC_HASH  , KC_DLR  , KC_PERC  ,  XXXXXXX ,                             XXXXXXX ,  KC_CIRC ,  KC_AMPR ,  KC_LPRN ,  KC_RPRN , KC_ASTR ,  XXXXXXX ,
   //├─────┼─────┼─────┼─────┼─────┼─────┼─────┤                          ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-       XXXXXXX , KC_LCTRL ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,  XXXXXXX ,  XXXXXXX ,                             XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  KC_RBRC ,  KC_BSLS , XXXXXXX ,  XXXXXXX ,
+       XXXXXXX , KC_LCTRL ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,  XXXXXXX ,  XXXXXXX ,                             XXXXXXX ,  XXXXXXX ,  KC_EQL  ,  KC_LBRC ,  KC_RBRC , XXXXXXX ,  XXXXXXX ,
   //├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┐    ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
        XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,       XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  KC_LCBR ,  KC_RCBR , XXXXXXX ,  XXXXXXX ,
   //├─────┼─────┼─────┼─────┼───────────┼─────┼─────┤    ├─────┼─────┼───────────┼─────┼─────┼─────┼─────┤
@@ -98,9 +103,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├─────┼─────┼─────┼─────┼─────┼─────┼─────┤                          ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
        XXXXXXX , KC_LCTRL ,  XXXXXXX , XXXXXXX ,  KC_ENT  ,  XXXXXXX , XXXXXXX ,                              XXXXXXX ,  XXXXXXX ,  KC_ENT  ,  KC_VOLU , XXXXXXX ,  XXXXXXX ,  XXXXXXX , 
   //├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┐    ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-       XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,       XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  KC_VOLD ,  KC_F11 ,  KC_F12 ,  XXXXXXX ,
+       XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,       XXXXXXX ,  XXXXXXX ,DF_GAMEING,  XXXXXXX ,  KC_VOLD ,  KC_F11 ,  KC_F12 ,  XXXXXXX ,
   //├─────┼─────┼─────┼─────┼───────────┼─────┼─────┤    ├─────┼─────┼───────────┼─────┼─────┼─────┼─────┤
        XXXXXXX ,  XXXXXXX ,  XXXXXXX , KC_LALT ,      KC_SPC  ,         XXXXXXX ,  XXXXXXX ,       XXXXXXX ,  XXXXXXX ,      KC_DEL ,         XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX
+  //└─────┴─────┴─────┴─────┘  └─────┘     └─────┴─────┘    └─────┴─────┘  └─────┘     └─────┴─────┴─────┴─────┘
+  ),
+
+  [_GAMEING] = LAYOUT(
+  //┌─────┬─────┬─────┬─────┬─────┬─────┐                                                ┌─────┬─────┬─────┬─────┬─────┬─────┐
+       XXXXXXX ,  KC_1    ,  KC_2    ,  KC_3    ,  KC_4   ,   KC_5   ,                                                   XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX , XXXXXXX ,
+  //├─────┼─────┼─────┼─────┼─────┼─────┼─────┐                          ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+       XXXXXXX ,  KC_Q,      KC_W,      KC_E    ,  KC_R   ,   KC_T   ,  XXXXXXX ,                             XXXXXXX ,   KC_Y   ,   KC_U   ,   KC_I   ,   KC_O   ,  KC_P    , XXXXXXX ,
+  //├─────┼─────┼─────┼─────┼─────┼─────┼─────┤                          ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+       XXXXXXX ,  KC_A,      KC_S,      KC_D,      KC_F,      KC_G   ,  XXXXXXX ,                             XXXXXXX ,   KC_H   ,   KC_J   ,   KC_K   ,   KC_L   , KC_MINUS,  XXXXXXX ,
+  //├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┐    ┌─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+       XXXXXXX ,  KC_Z    ,  KC_X    ,  KC_C    ,  KC_V    ,  KC_B   ,  XXXXXXX ,  XXXXXXX ,       XXXXXXX ,  XXXXXXX ,   KC_N   ,   KC_M   ,  KC_COMM ,  KC_DOT ,  KC_SLSH ,  XXXXXXX ,
+  //├─────┼─────┼─────┼─────┼───────────┼─────┼─────┤    ├─────┼─────┼───────────┼─────┼─────┼─────┼─────┤
+       KC_LCTRL,  XXXXXXX ,  XXXXXXX , KC_LALT  ,     L_HOME4 ,         XXXXXXX ,  XXXXXXX ,       XXXXXXX ,  XXXXXXX ,    DF_QWERTY,          KC_TAB ,  XXXXXXX ,  XXXXXXX ,  XXXXXXX
   //└─────┴─────┴─────┴─────┘  └─────┘     └─────┴─────┘    └─────┴─────┘  └─────┘     └─────┴─────┴─────┴─────┘
   ),
 
