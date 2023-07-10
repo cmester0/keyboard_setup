@@ -1,0 +1,15 @@
+* Install QMK
+https://docs.qmk.fm/#/newbs
+
+
+#+begin_src bash
+  python3 -m pip install --user qmk
+  qmk setup
+#+end_src
+QMK will be placed at src_bash[]{~/qmk-firmware}
+
+* Install this keyboard
+#+begin_src bash
+  qmk compile --keyboard redox/rev1 --keymap custom_redox
+  qmk flash --keyboard redox/rev1 --keymap custom_redox
+#+end_src

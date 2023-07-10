@@ -1,0 +1,6 @@
+Minimalistic layout
+~
+hold backspace
+`
+"
+gui + direction
